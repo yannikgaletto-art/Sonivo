@@ -50,11 +50,11 @@ export type ScenarioCopy = {
 };
 
 export const SCENARIO_COPY: ScenarioCopy = {
-  eyebrow: "USE CASES",
+  eyebrow: "ANWENDUNGSFÄLLE",
   headlineParts: {
-    plain: "Findet sich Ihr",
-    cursive: "Szenario",
-    tail: "hier?",
+    plain: "Eine kleine Auswahl. Wir können viel",
+    cursive: "mehr.",
+    tail: "",
   },
   activeCard: {
     title: "Heizung und Warmwasser fallen aus. Der Rückruf muss sofort ins Team.",
@@ -64,8 +64,8 @@ export const SCENARIO_COPY: ScenarioCopy = {
   },
   floatingCards: [
     { num: "01", title: "Heizungsnotfall", tag: "SHK · Notdienst", active: true },
-    { num: "02", title: "Terminbuchung", tag: "Elektrotechnik · Termin" },
-    { num: "03", title: "Angebot", tag: "Dachdecker · Sturm" },
+    { num: "02", title: "Verpasster Anruf", tag: "Alle Gewerke · Rückruf-Chaos" },
+    { num: "03", title: "Besichtigung mit Fotos", tag: "Dachdecker · PV · Maler" },
   ],
 };
 
