@@ -3,22 +3,22 @@ import { DELIVERY_COPY } from "@/lib/content";
 
 export function Delivery() {
   return (
-    <section id="leistungen" className="mx-auto max-w-[1240px] px-6 py-20 md:py-28">
-      <p className="mb-4 text-xs font-medium tracking-[0.18em] text-ink-soft uppercase">
+    <section id="leistungen" className="mx-auto max-w-[1240px] px-6 py-14 md:py-28">
+      <p className="mb-4 text-[11px] font-medium tracking-[0.18em] text-ink-soft uppercase md:text-xs">
         {DELIVERY_COPY.eyebrow}
       </p>
-      <h2 className="text-4xl font-semibold leading-[1.1] text-ink md:text-5xl">
+      <h2 className="text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl md:text-5xl">
         {DELIVERY_COPY.headlineParts.plain}{" "}
         <span className="font-display font-medium text-ink-soft">
           {DELIVERY_COPY.headlineParts.cursive}
         </span>{" "}
         {DELIVERY_COPY.headlineParts.tail}
       </h2>
-      <p className="mt-5 max-w-3xl text-base text-ink/75 md:text-lg">
+      <p className="mt-5 max-w-3xl text-sm text-ink/75 sm:text-base md:text-lg">
         {DELIVERY_COPY.subheadline}
       </p>
 
-      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-4">
         {DELIVERY_COPY.cards.map((card, idx) => (
           <article
             key={card.num}

@@ -2,11 +2,11 @@ import { SCENARIO_COPY } from "@/lib/content";
 
 export function Scenario() {
   return (
-    <section id="szenario" className="mx-auto max-w-[1240px] px-6 py-20 md:py-28">
-      <p className="mb-4 text-xs font-medium tracking-[0.18em] text-ink-soft uppercase">
+    <section id="szenario" className="mx-auto max-w-[1240px] px-6 py-14 md:py-28">
+      <p className="mb-4 text-[11px] font-medium tracking-[0.18em] text-ink-soft uppercase md:text-xs">
         {SCENARIO_COPY.eyebrow}
       </p>
-      <h2 className="mb-12 text-4xl font-semibold leading-[1.1] text-ink md:text-5xl">
+      <h2 className="mb-10 text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl md:mb-12 md:text-5xl">
         {SCENARIO_COPY.headlineParts.plain}{" "}
         <span className="font-display font-medium text-ink-soft">
           {SCENARIO_COPY.headlineParts.cursive}
@@ -14,24 +14,24 @@ export function Scenario() {
         {SCENARIO_COPY.headlineParts.tail}
       </h2>
 
-      <div className="relative overflow-hidden rounded-3xl border border-line/60 bg-cream-soft p-8 shadow-card md:p-12">
+      <div className="relative overflow-hidden rounded-3xl border border-line/60 bg-cream-soft p-6 shadow-card sm:p-8 md:p-12">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <h3 className="text-3xl font-semibold leading-tight text-ink md:text-4xl">
+            <h3 className="text-2xl font-semibold leading-tight text-ink sm:text-3xl md:text-4xl">
               {SCENARIO_COPY.activeCard.title}
             </h3>
-            <p className="mt-6 max-w-lg text-base text-ink/75">
+            <p className="mt-5 max-w-lg text-sm text-ink/75 sm:mt-6 sm:text-base">
               <strong className="font-semibold text-ink">
                 Notfall erkannt in unter 30 Sekunden:
               </strong>{" "}
               {SCENARIO_COPY.activeCard.body.replace("Notfall erkannt in unter 30 Sekunden: ", "")}
             </p>
 
-            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-line bg-cream px-3 py-2">
+            <div className="mt-7 inline-flex items-center gap-3 rounded-full border border-line bg-cream px-3 py-2 md:mt-8">
               <button
                 type="button"
                 aria-label="Demo-Anruf abspielen"
-                className="flex size-9 items-center justify-center rounded-full bg-ink text-cream-soft hover:bg-forest"
+                className="flex size-10 items-center justify-center rounded-full bg-ink text-cream-soft hover:bg-forest"
               >
                 <span aria-hidden>▶</span>
               </button>

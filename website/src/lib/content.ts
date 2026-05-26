@@ -10,8 +10,7 @@ export type Bullet = string;
 
 export type HeroCopy = {
   eyebrow: string;
-  headlineParts: { plain: string; cursive: string; tail?: string };
-  subheadline: string;
+  headlineParts: { line1: string; line2plain: string; line2cursive: string };
   ctas: [CTA, CTA];
   microcopy: string;
   trustPills: [TrustPill, TrustPill, TrustPill];
@@ -20,11 +19,10 @@ export type HeroCopy = {
 export const HERO_COPY: HeroCopy = {
   eyebrow: "AI-OPERATOR FÜR HANDWERK · MADE IN GERMANY",
   headlineParts: {
-    plain: "Nie wieder verlorene Aufträge durch",
-    cursive: "verpasste Anrufe.",
+    line1: "Wir übernehmen den Bürokram.",
+    line2plain: "Sie machen das",
+    line2cursive: "Handwerk.",
   },
-  subheadline:
-    "Mehr als ein Voice Agent. Sonivo nimmt an, erkennt Notfälle, fordert Fotos an und schreibt fertige Aufträge direkt in Ihr bestehendes CRM, Kalender oder Ticketsystem — ohne neue Rufnummer, ohne Vendor-Lock-in.",
   ctas: [
     { label: "Erstgespräch buchen", href: "#kontakt", variant: "primary" },
     { label: "Demo anhören", href: "#szenario", variant: "ghost" },

@@ -2,21 +2,21 @@ import { COMPARISON_COPY } from "@/lib/content";
 
 export function Comparison() {
   return (
-    <section id="testing" className="mx-auto max-w-[1240px] px-6 py-20 md:py-28">
-      <p className="mb-4 text-xs font-medium tracking-[0.18em] text-ink-soft uppercase">
+    <section id="testing" className="mx-auto max-w-[1240px] px-6 py-14 md:py-28">
+      <p className="mb-4 text-[11px] font-medium tracking-[0.18em] text-ink-soft uppercase md:text-xs">
         {COMPARISON_COPY.eyebrow}
       </p>
-      <h2 className="mb-10 max-w-4xl text-4xl font-semibold leading-[1.1] text-ink md:text-5xl">
+      <h2 className="mb-10 max-w-4xl text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl md:text-5xl">
         {COMPARISON_COPY.headlineParts.plain}{" "}
         <span className="font-display font-medium text-ink-soft">
           {COMPARISON_COPY.headlineParts.cursive}
         </span>
       </h2>
 
-      <div className="mb-8 inline-flex rounded-full border border-line bg-cream-soft p-1 text-sm">
+      <div className="mb-8 inline-flex max-w-full flex-wrap rounded-full border border-line bg-cream-soft p-1 text-xs sm:text-sm">
         <button
           type="button"
-          className="rounded-full px-4 py-1.5 text-ink/55"
+          className="rounded-full px-4 py-2 text-ink/55"
           aria-pressed="false"
           disabled
         >
@@ -24,14 +24,14 @@ export function Comparison() {
         </button>
         <button
           type="button"
-          className="rounded-full bg-ink px-4 py-1.5 font-medium text-cream-soft"
+          className="rounded-full bg-ink px-4 py-2 font-medium text-cream-soft"
           aria-pressed="true"
         >
           {COMPARISON_COPY.toggle.rightLabel}
         </button>
       </div>
 
-      <div className="relative rounded-3xl border-2 border-ink/20 bg-cream-soft p-6 shadow-card md:p-10">
+      <div className="relative rounded-3xl border-2 border-ink/20 bg-cream-soft p-5 shadow-card sm:p-6 md:p-10">
         <span className="absolute -top-3 right-6 rounded-full bg-cream-soft px-3 py-1 text-xs font-medium text-ink-soft ring-1 ring-ink/15">
           {COMPARISON_COPY.containerLabel}
         </span>

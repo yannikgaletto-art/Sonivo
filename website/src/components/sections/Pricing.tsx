@@ -3,9 +3,9 @@ import { PRICING_COPY } from "@/lib/content";
 
 export function Pricing() {
   return (
-    <section id="pakete" className="mx-auto max-w-[1240px] px-6 py-20 md:py-28">
-      <div className="rounded-3xl border border-line/60 bg-cream-soft p-8 shadow-card md:p-14">
-        <h2 className="mb-12 text-4xl font-semibold leading-[1.1] text-ink md:text-5xl">
+    <section id="pakete" className="mx-auto max-w-[1240px] px-6 py-14 md:py-28">
+      <div className="rounded-3xl border border-line/60 bg-cream-soft p-6 shadow-card sm:p-8 md:p-14">
+        <h2 className="mb-10 text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl md:mb-12 md:text-5xl">
           <span className="font-display font-medium text-ink-soft">
             {PRICING_COPY.headlineParts.cursive}
           </span>{" "}
@@ -17,7 +17,7 @@ export function Pricing() {
             <article
               key={tier.name}
               className={[
-                "flex flex-col rounded-3xl border p-7",
+                "flex flex-col rounded-3xl border p-6 sm:p-7",
                 tier.highlighted
                   ? "border-ink bg-cream-tint shadow-card ring-1 ring-ink/10 lg:scale-[1.02]"
                   : "border-line/60 bg-cream opacity-90",
@@ -61,7 +61,7 @@ export function Pricing() {
               <Link
                 href={tier.ctaHref}
                 className={[
-                  "mt-auto inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium",
+                  "mt-auto inline-flex min-h-11 items-center justify-center rounded-full px-5 py-3 text-sm font-medium",
                   tier.highlighted
                     ? "bg-ink text-cream-soft hover:bg-forest"
                     : "border border-line bg-cream-soft text-ink hover:bg-cream-tint",
