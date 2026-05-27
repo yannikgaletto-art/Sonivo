@@ -50,7 +50,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="hidden lg:col-span-5 lg:block">
           <div className="relative aspect-square w-full overflow-visible">
             <SplineBot />
           </div>

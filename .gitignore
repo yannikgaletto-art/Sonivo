@@ -23,6 +23,12 @@ coverage/
 .turbo/
 .cache/
 
+# Auto-memory (per-machine state, never committed)
+memory/
+
+# Source-only images (das optimierte Set liegt in website/public/scenarios/)
+website/Bilder/
+
 # Logs
 *.log
 npm-debug.log*

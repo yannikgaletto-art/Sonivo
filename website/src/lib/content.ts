@@ -37,35 +37,98 @@ export const HERO_COPY: HeroCopy = {
 
 // ---------------------------------------------------------------------------
 
+export type ScenarioItem = {
+  num: string;
+  shortTitle: string;
+  tag: string;
+  fullTitle: string;
+  bodyHighlight: string;
+  bodyText: string;
+  audioSrc: string;
+  audioDuration: string;
+  image: string;
+  imageAlt: string;
+  accent: string;
+  bgPosition: string;
+  /** override für background-size; default "cover". Für hochkante/spezielle Bilder z.B. "contain" oder "auto 110%" */
+  bgSize?: string;
+};
+
 export type ScenarioCopy = {
   eyebrow: string;
   headlineParts: { plain: string; cursive: string; tail: string };
-  activeCard: {
-    title: string;
-    body: string;
-    audioSrc: string;
-    audioDuration: string;
-  };
-  floatingCards: { num: string; title: string; tag: string; active?: boolean }[];
+  scenarios: ScenarioItem[];
 };
 
 export const SCENARIO_COPY: ScenarioCopy = {
-  eyebrow: "ANWENDUNGSFÄLLE",
+  eyebrow: "",
   headlineParts: {
-    plain: "Eine kleine Auswahl. Wir können viel",
-    cursive: "mehr.",
-    tail: "",
+    plain: "Findet sich Ihr",
+    cursive: "Szenario",
+    tail: "hier?",
   },
-  activeCard: {
-    title: "Heizung und Warmwasser fallen aus. Der Rückruf muss sofort ins Team.",
-    body: "Notfall erkannt in unter 30 Sekunden: Standort, Schaden und Rückrufnummer landen sofort bei der Bereitschaft — inklusive Foto vom Display.",
-    audioSrc: "/demo/scenario-shk-placeholder.mp3",
-    audioDuration: "0:22",
-  },
-  floatingCards: [
-    { num: "01", title: "Heizungsnotfall", tag: "SHK · Notdienst", active: true },
-    { num: "02", title: "Verpasster Anruf", tag: "Alle Gewerke · Rückruf-Chaos" },
-    { num: "03", title: "Besichtigung mit Fotos", tag: "Dachdecker · PV · Maler" },
+  scenarios: [
+    {
+      num: "01",
+      shortTitle: "Heizungsnotfall",
+      tag: "SHK · Notdienst",
+      fullTitle: "Heizung und Warmwasser fallen aus. Der Rückruf muss sofort ins Team.",
+      bodyHighlight: "Notfall erkannt in unter 30 Sekunden:",
+      bodyText:
+        "Standort, Schaden und Rückrufnummer landen sofort bei der Bereitschaft — inklusive Foto vom Display.",
+      audioSrc: "/demo/scenario-shk-placeholder.mp3",
+      audioDuration: "0:22",
+      image: "/scenarios/heizungsnotfall-v2.png",
+      imageAlt: "Sonivo-Bot erkennt einen Heizungsnotfall, mit Warnhinweisen und Rückrufkontakt",
+      accent: "#5fb898",
+      bgPosition: "55% center",
+    },
+    {
+      num: "02",
+      shortTitle: "Verpasster Anruf",
+      tag: "Alle Gewerke · Nach Feierabend",
+      fullTitle: "Anruf nach Feierabend. Ihr Team ist auf der Baustelle, das Telefon klingelt ins Leere.",
+      bodyHighlight: "Sonivo nimmt ab, qualifiziert und übergibt:",
+      bodyText:
+        "Name, Anliegen und Dringlichkeit landen morgens als sortierte Aufgabenliste — nicht als zwanzig unbeantwortete Mailbox-Nachrichten.",
+      audioSrc: "/demo/scenario-shk-placeholder.mp3",
+      audioDuration: "0:18",
+      image: "/scenarios/verpasster-anruf-v2.png",
+      imageAlt: "Sonivo-Bot mit Headset nimmt Anrufe an, im Hintergrund Tag-Nacht-Übergang am Schreibtisch",
+      accent: "#9bb0e8",
+      bgPosition: "55% center",
+      bgSize: "contain",
+    },
+    {
+      num: "03",
+      shortTitle: "Reparatur mit Foto",
+      tag: "SHK · Elektrik · Wartung",
+      fullTitle: "Die Heizung zeigt einen Fehlercode. Der Kunde möchte einen Termin.",
+      bodyHighlight: "Foto vom Display, Typenschild und Aufstellort per SMS angefordert:",
+      bodyText:
+        "Der Techniker weiß vor der Fahrt, welches Modell, welcher Fehlercode, welche Ersatzteile — keine Leerfahrt, kein zweiter Termin.",
+      audioSrc: "/demo/scenario-shk-placeholder.mp3",
+      audioDuration: "0:24",
+      image: "/scenarios/reparatur-v2.png",
+      imageAlt: "Sonivo-Bot vor einem Dashboard mit Geräte-Fotos und Reparatur-Daten",
+      accent: "#7ec4d4",
+      bgPosition: "55% center",
+    },
+    {
+      num: "04",
+      shortTitle: "Termin direkt vereinbart",
+      tag: "Alle Gewerke · Terminvereinbarung",
+      fullTitle: "Kunde möchte einen Wartungstermin. PLZ liegt im Gebiet, der Kalender ist offen.",
+      bodyHighlight: "Termin direkt im Kalender, ohne Rückruf-Schleife:",
+      bodyText:
+        "Sonivo prüft das Einsatzgebiet, schlägt freie Slots vor und bestätigt per SMS — der Kunde legt mit einem Termin auf, Ihr Büro hat eine Aufgabe weniger.",
+      audioSrc: "/demo/scenario-shk-placeholder.mp3",
+      audioDuration: "0:20",
+      image: "/scenarios/terminbuchung-v2.png",
+      imageAlt: "Sonivo-Bot präsentiert einen Kalender mit verfügbaren Wartungsterminen",
+      accent: "#7fc5b8",
+      bgPosition: "50% center",
+    },
   ],
 };
 
@@ -77,14 +140,15 @@ export type DeliveryCard = {
   title: string;
   body: string;
   bullets: Bullet[];
-  dark?: boolean;
 };
 
 export type DeliveryCopy = {
   eyebrow: string;
   headlineParts: { plain: string; cursive: string; tail: string };
   subheadline: string;
+  punchline: string;
   cards: DeliveryCard[];
+  trustStrip: string[];
   footerLink: { text: string; cta: string; href: string };
 };
 
@@ -96,55 +160,63 @@ export const DELIVERY_COPY: DeliveryCopy = {
     tail: "liefert",
   },
   subheadline:
-    "Voice AI nimmt Anrufe an. Sonivo liefert das Ergebnis: Auftrag erfasst, Foto angefordert, Techniker informiert, Ticket im System.",
+    "Sonivo ist Ihr erster Mitarbeiter am Telefon: Empfang, Disponent und Vorqualifizierer in einem.",
+  punchline:
+    "Sonivo nimmt nicht nur Anrufe an — Sonivo macht aus jedem Anruf einen klaren nächsten Schritt: Auftrag, Rückruf, Termin, Foto oder Eskalation.",
   cards: [
     {
       num: "01",
       tag: "INBOUND",
       title: "Anrufe zuverlässig annehmen",
-      body: "Sonivo nimmt den Anruf an, versteht das Anliegen und übergibt nur dann, wenn Ihr Team wirklich gebraucht wird.",
+      body: "Sonivo nimmt jeden Anruf entgegen, versteht das Anliegen und erkennt, ob es dringend ist oder normal bearbeitet werden kann.",
       bullets: [
         "24/7 erreichbar, auch außerhalb der Öffnungszeiten",
-        "Dringende Anliegen sofort eskalieren",
-        "Übergabe mit allen Informationen, nicht nur dem Namen",
+        "Notfälle erkennen und sofort eskalieren",
+        "Name, Adresse, Rückrufnummer und Anliegen erfassen",
+        "Nur relevante Fälle an Ihr Team übergeben",
       ],
     },
     {
       num: "02",
-      tag: "OUTBOUND",
-      title: "Aktiv nachfassen",
-      body: "Der Agent ruft zurück, bestätigt Termine oder qualifiziert Leads mit individueller Ansprache statt starrem Skript.",
+      tag: "QUALIFIZIERUNG",
+      title: "Aus Anrufen werden saubere Aufträge",
+      body: "Der Agent fragt die Informationen ab, die Ihr Team wirklich braucht — damit aus einem Anruf direkt ein verwertbarer Vorgang wird.",
       bullets: [
-        "Rückrufe eigenständig führen",
-        "Termine bestätigen, weniger Nichterscheinen",
-        "Leads qualifizieren, bevor das Team ran muss",
-        "Fotos vom Schaden anfordern und mit Auftrag verknüpfen",
+        "Problem, Dringlichkeit und Einsatzort erfassen",
+        "Einsatzgebiet und Leistung prüfen",
+        "Fotos vom Schaden oder Gerät anfordern",
+        "Rückruf-, Termin- oder Auftragsticket erstellen",
       ],
     },
     {
       num: "03",
       tag: "INTEGRATION",
-      dark: true,
-      title: "Verbindet sich mit Ihren Tools",
-      body: "CRM, Kalender, Telefonanlage und Ticketsystem bleiben bestehen. Sonivo dockt an und arbeitet im Hintergrund.",
+      title: "Informiert Ihr Team automatisch",
+      body: "Sonivo arbeitet im Hintergrund mit Ihren bestehenden Tools und leitet neue Vorgänge an die richtigen Personen weiter.",
       bullets: [
-        "Kalender prüfen und Termine schreiben",
-        "CRM-Kontakte erkennen und Notizen schreiben",
         "Tickets oder Rückrufe automatisch auslösen",
+        "Techniker per E-Mail, SMS oder WhatsApp informieren",
+        "Kalender oder CRM anbinden",
+        "Gesprächszusammenfassung im System speichern",
       ],
     },
     {
       num: "04",
       tag: "REPORTING",
-      title: "Reporting, das mitdenkt",
-      body: "Jeder Vorgang transparent protokolliert. Sie sehen, was funktioniert. Wir verbessern den Agenten laufend.",
+      title: "Jeder Vorgang bleibt sichtbar",
+      body: "Sie sehen, welche Anrufe eingegangen sind, welche Fälle dringend waren und wo noch etwas offen ist.",
       bullets: [
-        "Jeder Vorgang transparent protokolliert",
-        "Monatliches Reporting mit klaren Messwerten",
-        "Laufende Optimierung, keine veralteten Systeme",
-        "DSGVO-konforme Speicherung mit Löschkonzept",
+        "Anrufe, Tickets und Eskalationen protokollieren",
+        "Kunden an Fotos oder Termine erinnern",
+        "Monatliches Reporting mit klaren Kennzahlen",
+        "Laufende Optimierung der Gesprächslogik",
       ],
     },
+  ],
+  trustStrip: [
+    "Agenten-TÜV vor Go-live",
+    "DSGVO-konform",
+    "Hosting Frankfurt",
   ],
   footerLink: {
     text: "Sie wissen noch nicht, was Sie brauchen?",
@@ -173,8 +245,6 @@ export type PricingCopy = {
   headlineParts: { plain: string; cursive: string; tail: string };
   tiers: PricingTier[];
   bottomStrip: { label: string; range: string; note: string };
-  customLink: { text: string; cta: string; href: string };
-  glossary: { label: string; body: string };
 };
 
 export const PRICING_COPY: PricingCopy = {
@@ -241,15 +311,6 @@ export const PRICING_COPY: PricingCopy = {
     label: "Einmalige Einrichtung",
     range: "799 – 2.500 €",
     note: "je nach Integrationen",
-  },
-  customLink: {
-    text: "Mehrere Standorte oder Branchen-ERP?",
-    cta: "Custom-Paket anfragen →",
-    href: "#kontakt",
-  },
-  glossary: {
-    label: "Was ist der Agenten-TÜV?",
-    body: "Vor dem Go-live testen wir Ihren Agenten mit 30-50 echten Szenarien aus Ihrem Betrieb: Notfälle, Preisfragen, Beschwerden, Datenschutzfragen. Bestanden = produktionsbereit.",
   },
 };
 

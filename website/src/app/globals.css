@@ -35,7 +35,7 @@ body {
 }
 
 .sonivo-bot-float {
-  animation: sonivo-bot-float-y 5.5s ease-in-out infinite;
+  animation: sonivo-bot-float-y 6.5s ease-in-out infinite;
   background: transparent;
   will-change: transform;
 }
@@ -46,16 +46,17 @@ body {
   min-height: 360px;
   width: 100%;
   background: transparent;
+  pointer-events: none;
 }
 
 @keyframes sonivo-bot-float-y {
   0%,
   100% {
-    transform: translateY(14px);
+    transform: translate3d(0, 28px, 0);
   }
 
   50% {
-    transform: translateY(-16px);
+    transform: translate3d(0, -28px, 0);
   }
 }
 
