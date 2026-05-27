@@ -391,7 +391,7 @@ export type ComparisonCopy = {
 };
 
 export const COMPARISON_COPY: ComparisonCopy = {
-  eyebrow: "TESTING",
+  eyebrow: "VOM ANRUF ZUM AUFTRAG",
   headlineParts: {
     plain: "Andere liefern einen Bot. Wir",
     cursive: "betreiben den Auftrag.",
@@ -414,15 +414,15 @@ export const COMPARISON_COPY: ComparisonCopy = {
       ],
     },
     {
-      heading: "IM TESTING",
+      heading: "IM AUFTRAG",
       highlighted: true,
       steps: [
-        "Agent konfiguriert und verbunden",
-        "Hunderte Testfälle generiert",
-        "Bot ruft Bot an",
-        "Jailbreak- und Swarm-Tests",
-        "Antworten automatisch bewertet",
-        "Testbericht mit Pass/Fail-Trail",
+        "Ticket landet sauber im CRM",
+        "Foto vom Schaden per SMS-Link",
+        "Techniker bekommt Briefing aufs Handy",
+        "Termin steht im Kalender",
+        "Notfall geht direkt an Bereitschaft",
+        "Inhaber sieht morgens saubere Liste",
       ],
     },
   ],
@@ -440,7 +440,7 @@ export const COMPARISON_COPY: ComparisonCopy = {
     {
       icon: "∞",
       label: "Kein Vendor-Lock-in",
-      sublabel: "Tele, CRM, Kalender bleiben",
+      sublabel: "Telefon, CRM, Kalender bleiben",
     },
   ],
 };
